@@ -1,0 +1,70 @@
+echo "# Website-For-AS" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/V-Aurum/Website-For-AS.git
+git push -u origin main
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Statement</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #dfe9f3 0%, #ffffff 100%);
+      font-family: "Segoe UI", Roboto, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+      color: #333;
+    }
+    #statement {
+      font-size: 1.8rem;
+      max-width: 600px;
+      line-height: 1.5;
+      background: #fff;
+      padding: 30px 40px;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <div id="statement">Loading...</div>
+
+  <script>
+    const statements = [
+      "Stay positive, work hard, make it happen.",
+      "Every day is a second chance.",
+      "Do one thing today that your future self will thank you for.",
+      "Success is the sum of small efforts repeated daily.",
+      "Dream big. Start small. Act now.",
+      "Progress, not perfection, is what matters most.",
+      "Focus on being productive instead of busy."
+    ];
+
+    function dayOfYear(d) {
+      const start = new Date(d.getFullYear(), 0, 0);
+      const diff = d - start;
+      const oneDay = 1000 * 60 * 60 * 24;
+      return Math.floor(diff / oneDay);
+    }
+
+    function dailyRandom(seed, max) {
+      const x = Math.sin(seed) * 10000;
+      return Math.floor((x - Math.floor(x)) * max);
+    }
+
+    const today = new Date();
+    const doy = dayOfYear(today);
+    const index = dailyRandom(doy, statements.length);
+
+    document.getElementById("statement").textContent = statements[index];
+  </script>
+</body>
+</html>
