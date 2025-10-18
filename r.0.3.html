@@ -4,11 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Daily Statement</title>
-  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Amatic+SC&family=Caveat&display=swap" rel="stylesheet">
+  <!-- Cute, elegant fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
   <style>
     /* Body & background */
     body {
-      font-family: 'Patrick Hand', cursive;
+      font-family: 'Caveat', cursive;
       margin: 0;
       min-height: 100vh;
       display: flex;
@@ -17,6 +18,20 @@
       background: linear-gradient(135deg, #fceabb, #f8b500);
       text-align: center;
       padding: 20px;
+      box-sizing: border-box;
+    }
+
+    /* Page container with border */
+    .page-container {
+      width: 100%;
+      max-width: 900px;
+      padding: 20px;
+      border: 8px solid rgba(255, 255, 255, 0.6);
+      border-radius: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      animation: fadeIn 1.5s ease forwards;
+      background: rgba(255,255,255,0.05);
+      box-sizing: border-box;
     }
 
     /* Fade-in animation */
@@ -33,14 +48,14 @@
       border: 2px solid rgba(255, 255, 255, 0.6);
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
       max-width: 700px;
-      width: 100%;
+      margin: auto;
       animation: fadeIn 1.5s ease forwards;
     }
 
     h1 {
-      font-family: 'Amatic SC', cursive;
-      font-weight: bold;
-      font-size: 2.2rem;
+      font-family: 'Dancing Script', cursive;
+      font-weight: 700;
+      font-size: 2.5rem;
       margin-bottom: 20px;
       color: #333;
       animation: fadeIn 1.5s ease forwards;
@@ -48,7 +63,7 @@
     }
 
     #statement {
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       line-height: 1.6;
       padding: 15px 20px;
       border-radius: 15px;
@@ -59,7 +74,7 @@
 
     #date {
       margin-top: 20px;
-      font-size: 0.95rem;
+      font-size: 1rem;
       opacity: 0.8;
       font-style: italic;
       color: #555;
@@ -73,7 +88,7 @@
         padding: 30px 20px;
       }
       h1 {
-        font-size: 1.8rem;
+        font-size: 2rem;
       }
       #statement {
         font-size: 1.3rem;
@@ -82,10 +97,12 @@
   </style>
 </head>
 <body>
-  <div class="quote-card">
-    <h1>Daily Statement</h1>
-    <div id="statement">Loading...</div>
-    <div id="date"></div>
+  <div class="page-container">
+    <div class="quote-card">
+      <h1>Daily Statement</h1>
+      <div id="statement">Loading...</div>
+      <div id="date"></div>
+    </div>
   </div>
 
   <script>
