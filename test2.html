@@ -3,13 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daily Statement</title>
-  <!-- Cute, elegant fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <title>Statement</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
   <style>
-    /* Body & background */
     body {
-      font-family: 'Caveat', cursive;
+      font-family: 'Dancing Script', cursive;
       margin: 0;
       min-height: 100vh;
       display: flex;
@@ -21,88 +19,64 @@
       box-sizing: border-box;
     }
 
-    /* Page container with border */
-    .page-container {
-      width: 100%;
-      max-width: 900px;
-      padding: 20px;
-      border: 8px solid rgba(255, 255, 255, 0.6);
-      border-radius: 30px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-      animation: fadeIn 1.5s ease forwards;
-      background: rgba(255,255,255,0.05);
-      box-sizing: border-box;
-    }
-
-    /* Fade-in animation */
     @keyframes fadeIn {
       0% { opacity: 0; transform: translateY(10px); }
       100% { opacity: 1; transform: translateY(0); }
     }
 
-    /* Statement card */
     .quote-card {
       background: rgba(255, 255, 255, 0.85);
-      padding: 40px 30px;
+      padding: 50px 40px;
       border-radius: 25px;
       border: 2px solid rgba(255, 255, 255, 0.6);
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
       max-width: 700px;
-      margin: auto;
+      width: 100%;
       animation: fadeIn 1.5s ease forwards;
-    }
-
-    h1 {
-      font-family: 'Dancing Script', cursive;
-      font-weight: 700;
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-      color: #333;
-      animation: fadeIn 1.5s ease forwards;
-      animation-delay: 0.2s;
     }
 
     #statement {
-      font-size: 1.6rem;
+      font-size: 1.8rem;
       line-height: 1.6;
-      padding: 15px 20px;
+      padding: 20px 25px;
       border-radius: 15px;
-      transition: background-color 0.5s ease, color 0.5s ease;
       animation: fadeIn 1.5s ease forwards;
-      animation-delay: 0.4s;
+      animation-delay: 0.2s;
+      color: #333;
     }
 
     #date {
-      margin-top: 20px;
+      margin-top: 25px;
       font-size: 1rem;
       opacity: 0.8;
       font-style: italic;
-      color: #555;
+      color: #333;
       animation: fadeIn 1.5s ease forwards;
-      animation-delay: 0.6s;
+      animation-delay: 0.4s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
     }
 
-    /* Responsive adjustments */
+    #date .heart {
+      font-size: 1.2rem;
+    }
+
     @media (max-width: 600px) {
       .quote-card {
-        padding: 30px 20px;
-      }
-      h1 {
-        font-size: 2rem;
+        padding: 35px 25px;
       }
       #statement {
-        font-size: 1.3rem;
+        font-size: 1.4rem;
       }
     }
   </style>
 </head>
 <body>
-  <div class="page-container">
-    <div class="quote-card">
-      <h1>Daily Statement</h1>
-      <div id="statement">Loading...</div>
-      <div id="date"></div>
-    </div>
+  <div class="quote-card">
+    <div id="statement">Loading...</div>
+    <div id="date"><span class="heart">❤️</span><span id="date-text"></span></div>
   </div>
 
   <script>
@@ -117,11 +91,11 @@
     ];
 
     const palettes = [
-      {bg: "#ffecf1", color: "#d6336c"},
-      {bg: "#e6f7ff", color: "#1c7ed6"},
-      {bg: "#fff4e6", color: "#f76707"},
-      {bg: "#f0fff4", color: "#37b24d"},
-      {bg: "#fff0f6", color: "#f06595"}
+      {bg: "#ffecf1"},
+      {bg: "#e6f7ff"},
+      {bg: "#fff4e6"},
+      {bg: "#f0fff4"},
+      {bg: "#fff0f6"}
     ];
 
     function dayOfYear(d) {
@@ -145,9 +119,11 @@
     const statementEl = document.getElementById("statement");
     statementEl.textContent = statements[index];
     statementEl.style.backgroundColor = palettes[paletteIndex].bg;
-    statementEl.style.color = palettes[paletteIndex].color;
 
-    document.getElementById("date").textContent = today.toDateString();
+    const heartEl = document.querySelector(".heart");
+    heartEl.style.color = palettes[paletteIndex].bg;
+
+    document.getElementById("date-text").textContent = today.toDateString();
   </script>
 </body>
 </html>
