@@ -1,68 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daily Affirmation</title>
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Another Whisper</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Inter:wght@300&display=swap" rel="stylesheet">
   <style>
     body {
-      margin: 0;
-      height: 100vh;
+      font-family: 'Playfair Display', serif;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-family: 'Quicksand', sans-serif;
-      background: linear-gradient(135deg, #fceabb, #f8b500);
+      flex-direction: column;
+      height: 100vh;
+      background: linear-gradient(135deg, #f8e1ec, #d8f3dc);
+      margin: 0;
       color: #333;
-      transition: background 2s ease-in-out;
-    }
-    #container {
-      background: #fff;
-      padding: 40px 50px;
-      border-radius: 25px;
-      border: 3px solid #f8b500;
-      max-width: 600px;
       text-align: center;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-      animation: fadeIn 1.5s ease forwards;
     }
-    #statement {
-      font-size: 1.5rem;
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #5a189a;
+      font-family: 'Inter', sans-serif;
+      letter-spacing: 1px;
+    }
+    #affirmation {
+      font-size: 1.6rem;
+      max-width: 700px;
+      margin: 0 1rem 2rem;
       line-height: 1.6;
-      margin-bottom: 20px;
+      color: #333;
+      transition: opacity 0.5s ease;
     }
-    #heart {
-      font-size: 2rem;
-      display: inline-block;
-      animation: pulse 2s infinite;
+    button {
+      background-color: #5a189a;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Inter', sans-serif;
     }
-
-    @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(20px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
-    @keyframes pulse {
-      0%, 100% {transform: scale(1);}
-      50% {transform: scale(1.2);}
-    }
-
-    @media (max-width: 768px) {
-      #container { padding: 30px 20px; }
-      #statement { font-size: 1.2rem; }
-      #heart { font-size: 1.5rem; }
+    button:hover {
+      background-color: #7b2cbf;
+      transform: scale(1.05);
     }
   </style>
 </head>
 <body>
-  <div id="container">
-    <div id="statement">Loading...</div>
-    <div id="heart">❤️</div>
-  </div>
+  <h1>Another Whisper</h1>
+  <div id="affirmation"></div>
+  <button onclick="newAffirmation()">New Whisper</button>
 
   <script>
-    const statements = [
-     "The world shines brighter simply by having you in it 🌞",
+    const affirmations = [
+      "The world shines brighter simply by having you in it 🌞",
       "If no one has told you today, I'm wrapped in joy knowing you exist 💖",
       "You're a perfect lil pumpkin and you'll get through it 🎃",
       "🌻 for you",
@@ -160,30 +155,27 @@
       "You are endlessly fascinating ✨",
       "You are phenomenal 💖",
       "You are a light in the darkness 🌟",
-      "You are magical 🌸",
+      "You are magical 🌸"
     ];
 
-    const gradients = [
-      ["#fceabb", "#f8b500"],
-      ["#a1c4fd", "#c2e9fb"],
-      ["#ffecd2", "#fcb69f"],
-      ["#fad0c4", "#ffd1ff"],
-      ["#a8edea", "#fed6e3"],
-      ["#fbc2eb", "#a6c1ee"],
-      ["#ff9a9e", "#fad0c4"],
-      ["#ffdde1", "#ee9ca7"],
-      ["#89f7fe", "#66a6ff"],
-      ["#f6d365", "#fda085"]
-    ];
+    function getDailyAffirmation() {
+      const today = new Date();
+      const seed = today.getUTCFullYear() * 1000 + today.getUTCMonth() * 50 + today.getUTCDate();
+      const index = seed % affirmations.length;
+      return affirmations[index];
+    }
 
-    // random statement + gradient
-    const randomStatement = statements[Math.floor(Math.random() * statements.length)];
-    const randomGradient = gradients[Math.floor(Math.random() * gradients.length)];
+    function newAffirmation() {
+      const random = affirmations[Math.floor(Math.random() * affirmations.length)];
+      const affirmationElement = document.getElementById('affirmation');
+      affirmationElement.style.opacity = 0;
+      setTimeout(() => {
+        affirmationElement.textContent = random;
+        affirmationElement.style.opacity = 1;
+      }, 300);
+    }
 
-    // smooth background transition
-    document.body.style.background = `linear-gradient(135deg, ${randomGradient[0]}, ${randomGradient[1]})`;
-    document.getElementById("statement").textContent = randomStatement;
-    document.getElementById("container").style.borderColor = randomGradient[1];
+    document.getElementById('affirmation').textContent = getDailyAffirmation();
   </script>
 </body>
 </html>
