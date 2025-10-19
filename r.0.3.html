@@ -3,125 +3,252 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daily Statement</title>
-  <!-- Cute, elegant fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <title>Daily Affirmation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    /* Body & background */
     body {
-      font-family: 'Caveat', cursive;
       margin: 0;
-      min-height: 100vh;
+      height: 100vh;
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
+      font-family: 'Quicksand', sans-serif;
       background: linear-gradient(135deg, #fceabb, #f8b500);
-      text-align: center;
-      padding: 20px;
-      box-sizing: border-box;
-    }
-
-    /* Page container with border */
-    .page-container {
-      width: 100%;
-      max-width: 900px;
-      padding: 20px;
-      border: 8px solid rgba(255, 255, 255, 0.6);
-      border-radius: 30px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-      animation: fadeIn 1.5s ease forwards;
-      background: rgba(255,255,255,0.05);
-      box-sizing: border-box;
-    }
-
-    /* Fade-in animation */
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(10px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Statement card */
-    .quote-card {
-      background: rgba(255, 255, 255, 0.85);
-      padding: 40px 30px;
-      border-radius: 25px;
-      border: 2px solid rgba(255, 255, 255, 0.6);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-      max-width: 700px;
-      margin: auto;
-      animation: fadeIn 1.5s ease forwards;
-    }
-
-    h1 {
-      font-family: 'Dancing Script', cursive;
-      font-weight: 700;
-      font-size: 2.5rem;
-      margin-bottom: 20px;
       color: #333;
-      animation: fadeIn 1.5s ease forwards;
-      animation-delay: 0.2s;
     }
-
+    #container {
+      background: #fff;
+      padding: 40px 50px;
+      border-radius: 25px;
+      border: 3px solid #f8b500;
+      max-width: 600px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      animation: fadeIn 1.5s ease forwards;
+    }
     #statement {
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       line-height: 1.6;
-      padding: 15px 20px;
-      border-radius: 15px;
-      transition: background-color 0.5s ease, color 0.5s ease;
-      animation: fadeIn 1.5s ease forwards;
-      animation-delay: 0.4s;
+      margin-bottom: 20px;
     }
-
     #date {
-      margin-top: 20px;
       font-size: 1rem;
-      opacity: 0.8;
-      font-style: italic;
       color: #555;
-      animation: fadeIn 1.5s ease forwards;
-      animation-delay: 0.6s;
+    }
+    #heart {
+      font-size: 2rem;
+      display: inline-block;
+      animation: pulse 2s infinite;
     }
 
-    /* Responsive adjustments */
-    @media (max-width: 600px) {
-      .quote-card {
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes pulse {
+      0%, 100% {transform: scale(1);}
+      50% {transform: scale(1.2);}
+    }
+
+    @media (max-width: 768px) {
+      #container {
         padding: 30px 20px;
       }
-      h1 {
-        font-size: 2rem;
-      }
       #statement {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
+      }
+      #heart {
+        font-size: 1.5rem;
       }
     }
   </style>
 </head>
 <body>
-  <div class="page-container">
-    <div class="quote-card">
-      <h1>Daily Statement</h1>
-      <div id="statement">Loading...</div>
-      <div id="date"></div>
-    </div>
+  <div id="container">
+    <div id="statement">Loading...</div>
+    <div id="date"></div>
+    <div id="heart">❤️</div>
   </div>
 
   <script>
     const statements = [
-      "Stay positive, work hard, make it happen.",
-      "Every day is a second chance.",
-      "Do one thing today that your future self will thank you for.",
-      "Success is the sum of small efforts repeated daily.",
-      "Dream big. Start small. Act now.",
-      "Progress, not perfection, is what matters most.",
-      "Focus on being productive instead of busy."
-    ];
-
-    const palettes = [
-      {bg: "#ffecf1", color: "#d6336c"},
-      {bg: "#e6f7ff", color: "#1c7ed6"},
-      {bg: "#fff4e6", color: "#f76707"},
-      {bg: "#f0fff4", color: "#37b24d"},
-      {bg: "#fff0f6", color: "#f06595"}
+      "The world shines brighter simply by having you in it 🌞",
+      "If no one has told you today, I'm wrapped in joy knowing you exist 💖",
+      "You're a perfect lil pumpkin and you'll get through it 🎃",
+      "🌻 for you",
+      "🌹 for you",
+      "🌷 for you",
+      "🌼 for you",
+      "You're sexy and intelligent -urduck 😘",
+      "You're a wonderful human",
+      "You're kind and empathetic 💕",
+      "I am immensely proud of you",
+      "I am proud of you for making decisions that align with your purpose 🌟",
+      "I am proud of you for accepting discomfort and enjoying the cards you've been dealt 💪",
+      "I am so excited for you, you are going to do wonderful things ✨",
+      "I am so so so proud of you, Keep Going ⭐",
+      "You will forever hold a place in my heart -urduck ❤️",
+      "You've been a reason why someone smiled on a bad day 😊",
+      "You bring a light to this world that is contagious 🌞",
+      "Absolutely Radiant Existence ✨",
+      "You have a positive impact on everyone in more ways than you could ever imagine 💖",
+      "Care for you like I would have -urduck 🌷",
+      "Eat, Sleep, Hydrate, Radiate, Love that woman 💖",
+      "Maybe you've cast a spell, Witch of Joy or something 🪄",
+      "It's beautiful, how strong you are, keep going 💪",
+      "You're an absolute inspiration 🌟",
+      "I hope you have a wonderful day 🌸",
+      "You're growing into the version of yourself you knew you always would, I'm so proud of you 🌻",
+      "You are my favorite color -urduck 💖",
+      "Don't give up you radiant little legend, you're strong and resilient and you can do it ⭐",
+      "You're funny 😂",
+      "Never hide who you are 💕",
+      "Always be yourself 🌸",
+      "My door will forever be open to you, just knock -urduck 🚪💖",
+      "Tell me everything, I'll love you regardless -urduck ❤️",
+      "You're strong and you're capable 💪",
+      "At the end of the day it's you and your life, so go have fun, be you 🌈",
+      "You're an absolute masterpiece, don't you forget it 🎨",
+      "My biggest blessing -urduck 💖",
+      "And if by any chance you don't believe in yourself anymore. Borrow my belief in you. Until you can believe in yourself again 🌟",
+      "You make bad days feel like magic ✨",
+      "🌸 You deserve all the cozy hugs today 🤗",
+      "You are a legend, quietly changing the world 🌻",
+      "Good morning, gorgeous 🌞",
+      "You're trouble in the best way 😏",
+      "I’m proud of you for how far you’ve come 💖",
+      "Your smile is contagious 😊",
+      "You make ordinary moments feel extraordinary ✨",
+      "You’re my favorite notification 💌",
+      "You light up my world like nobody else 🌟",
+      "Even when it’s hard, you’re doing amazing 💪",
+      "You are my happy thought 🌸",
+      "I love your heart ❤️",
+      "You’re a star, never forget that ⭐",
+      "Sending you all the love today 💖",
+      "You are my sunshine 🌞",
+      "Keep shining, beautiful 🌟",
+      "You are magic, don’t let anyone tell you otherwise ✨",
+      "You’re my little hero 🦸‍♀️",
+      "I love how your mind works 🧠💖",
+      "You make life sweeter 🍯",
+      "Your energy is infectious 🌈",
+      "You are enough, always 💕",
+      "You’re my favorite hello and hardest goodbye 💌",
+      "You’re golden 🌟",
+      "Your laugh is my favorite sound 😂",
+      "You make hearts happy ❤️",
+      "I adore everything about you 💖",
+      "You’re my cozy place 🌸",
+      "You’re brilliant and unstoppable 💪",
+      "Keep being your wonderful self 🌷",
+      "You are loved beyond measure 💖",
+      "You inspire me every day ✨",
+      "You’re a ray of sunshine on cloudy days 🌞",
+      "You are a masterpiece, don’t forget it 🎨",
+      "You make the world better just by being in it 🌍",
+      "I believe in you always 💕",
+      "You’re my favorite chapter in the story of life 📖💖",
+      "You are the definition of amazing 🌟",
+      "You are my heart’s favorite beat ❤️",
+      "You deserve all the joy today 🌸",
+      "You’re a blessing to everyone around you 💖",
+      "You are perfect in your imperfections 🌷",
+      "Keep growing, keep glowing 🌟",
+      "You are a reason someone smiles today 😊",
+      "You are strong, you are loved 💪💖",
+      "You are my favorite person -urduck 💌",
+      "You are a gift to this world 🎁",
+      "You are magic ✨",
+      "You make ordinary things extraordinary 🌸",
+      "You are my favorite daydream 💖",
+      "Sending sunshine your way 🌞",
+      "You are my heart's warmth ❤️",
+      "You are radiant, inside and out 🌟",
+      "You make life sparkle ✨",
+      "You are my safe place 🌷",
+      "You are loved, always 💕",
+      "You bring joy wherever you go 🌈",
+      "You are my favorite hello 🌸",
+      "Every part of you is beautiful 💖",
+      "You are my little miracle 🌟",
+      "You are worthy of all love 💕",
+      "You make the world softer 🌸",
+      "You are endlessly fascinating ✨",
+      "You are my heart's favorite song 🎶",
+      "You are phenomenal 💖",
+      "You are a light in the darkness 🌟",
+      "You are my reason to smile 😊",
+      "You are magical 🌸",
+      "You are cherished beyond words 💕",
+      "You are my inspiration ✨",
+      "You are beautiful exactly as you are 💖",
+      "You are my dream come true 🌷",
+      "You make everything better 🌈",
+      "You are radiant and unstoppable 🌟",
+      "You are my favorite human 💖",
+      "You are my happiness 🌸",
+      "You are a treasure 💎",
+      "You are loved exactly as you are 💕",
+      "You are my little sunshine 🌞",
+      "You are extraordinary and radiant ✨",
+      "You are my favorite secret 💖",
+      "You are a sparkling soul 🌟",
+      "You are magic and joy 🌸",
+      "You are my comfort 💕",
+      "You are brilliant 💖",
+      "You are my heart 🌞",
+      "You are loved and adored 🌸",
+      "You are my joy 💖",
+      "You are a blessing 🌷",
+      "You are my little star ⭐",
+      "You are phenomenal 🌟",
+      "You are my favorite melody 🎶",
+      "You are radiant and inspiring ✨",
+      "You are my little wonder 🌸",
+      "You are adored 💖",
+      "You are my sunshine 🌞",
+      "You are extraordinary 🌟",
+      "You are my favorite heartbeat ❤️",
+      "You are magic 🌸",
+      "You are my cozy corner 💕",
+      "You are radiant 💖",
+      "You are my inspiration 🌟",
+      "You are my favorite piece of happiness 🌸",
+      "You are phenomenal and loved 💖",
+      "You are my little dream 🌷",
+      "You are adored and cherished 💕",
+      "You are my shining star ⭐",
+      "You are radiant and amazing ✨",
+      "You are my favorite treasure 💖",
+      "You are magical 🌸",
+      "You are my happiness 💕",
+      "You are extraordinary 🌟",
+      "You are my little joy 🌷",
+      "You are adored and loved 💖",
+      "You are my favorite melody 🎶",
+      "You are radiant and phenomenal 🌸",
+      "You are my little star ⭐",
+      "You are magic and love 💖",
+      "You are my sunshine 🌞",
+      "You are extraordinary and radiant 🌟",
+      "You are my little wonder 🌸",
+      "You are cherished 💖",
+      "You are my favorite human 💕",
+      "You are amazing and adored 🌟",
+      "You are my cozy happiness 🌸",
+      "You are phenomenal 💖",
+      "You are my little magic ✨",
+      "You are adored and cherished 💕",
+      "You are my favorite heartbeat ❤️",
+      "You are radiant and strong 🌟",
+      "You are my little miracle 🌸",
+      "You are loved 💖",
+      "You are my favorite star ⭐",
+      "You are extraordinary 🌟",
+      "You are my little joy 🌸",
+      "You are magic 🌸",
+      "You are my favorite treasure 💖", 
     ];
 
     function dayOfYear(d) {
@@ -138,16 +265,11 @@
 
     const today = new Date();
     const doy = dayOfYear(today);
-
     const index = dailyRandom(doy, statements.length);
-    const paletteIndex = dailyRandom(doy + 100, palettes.length);
 
-    const statementEl = document.getElementById("statement");
-    statementEl.textContent = statements[index];
-    statementEl.style.backgroundColor = palettes[paletteIndex].bg;
-    statementEl.style.color = palettes[paletteIndex].color;
-
+    document.getElementById("statement").textContent = statements[index];
     document.getElementById("date").textContent = today.toDateString();
   </script>
 </body>
 </html>
+
