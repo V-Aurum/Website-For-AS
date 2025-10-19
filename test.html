@@ -15,6 +15,7 @@
       font-family: 'Quicksand', sans-serif;
       background: linear-gradient(135deg, #fceabb, #f8b500);
       color: #333;
+      transition: background 2s ease-in-out;
     }
     #container {
       background: #fff;
@@ -30,10 +31,6 @@
       font-size: 1.5rem;
       line-height: 1.6;
       margin-bottom: 20px;
-    }
-    #date {
-      font-size: 1rem;
-      color: #555;
     }
     #heart {
       font-size: 2rem;
@@ -51,28 +48,21 @@
     }
 
     @media (max-width: 768px) {
-      #container {
-        padding: 30px 20px;
-      }
-      #statement {
-        font-size: 1.2rem;
-      }
-      #heart {
-        font-size: 1.5rem;
-      }
+      #container { padding: 30px 20px; }
+      #statement { font-size: 1.2rem; }
+      #heart { font-size: 1.5rem; }
     }
   </style>
 </head>
 <body>
   <div id="container">
     <div id="statement">Loading...</div>
-    <div id="date"></div>
     <div id="heart">❤️</div>
   </div>
 
   <script>
     const statements = [
-      "The world shines brighter simply by having you in it 🌞",
+     "The world shines brighter simply by having you in it 🌞",
       "If no one has told you today, I'm wrapped in joy knowing you exist 💖",
       "You're a perfect lil pumpkin and you'll get through it 🎃",
       "🌻 for you",
@@ -173,25 +163,27 @@
       "You are magical 🌸",
     ];
 
-    function dayOfYear(d) {
-      const start = new Date(d.getFullYear(), 0, 0);
-      const diff = d - start;
-      const oneDay = 1000 * 60 * 60 * 24;
-      return Math.floor(diff / oneDay);
-    }
+    const gradients = [
+      ["#fceabb", "#f8b500"],
+      ["#a1c4fd", "#c2e9fb"],
+      ["#ffecd2", "#fcb69f"],
+      ["#fad0c4", "#ffd1ff"],
+      ["#a8edea", "#fed6e3"],
+      ["#fbc2eb", "#a6c1ee"],
+      ["#ff9a9e", "#fad0c4"],
+      ["#ffdde1", "#ee9ca7"],
+      ["#89f7fe", "#66a6ff"],
+      ["#f6d365", "#fda085"]
+    ];
 
-    function dailyRandom(seed, max) {
-      const x = Math.sin(seed) * 10000;
-      return Math.floor((x - Math.floor(x)) * max);
-    }
+    // random statement + gradient
+    const randomStatement = statements[Math.floor(Math.random() * statements.length)];
+    const randomGradient = gradients[Math.floor(Math.random() * gradients.length)];
 
-    const today = new Date();
-    const doy = dayOfYear(today);
-    const index = dailyRandom(doy, statements.length);
-
-    document.getElementById("statement").textContent = statements[index];
-    document.getElementById("date").textContent = today.toDateString();
+    // smooth background transition
+    document.body.style.background = `linear-gradient(135deg, ${randomGradient[0]}, ${randomGradient[1]})`;
+    document.getElementById("statement").textContent = randomStatement;
+    document.getElementById("container").style.borderColor = randomGradient[1];
   </script>
 </body>
 </html>
-
