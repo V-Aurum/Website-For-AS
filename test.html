@@ -18,12 +18,178 @@
       color: #333;
       text-align: center;
     }
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
-      color: #5a189a;
+    #affirmation {
+      font-size: 1.6rem;
+      max-width: 700px;
+      margin: 0 1rem 2rem;
+      line-height: 1.6;
+      color: #333;
+      transition: opacity 0.5s ease;
+    }
+    button {
+      background-color: #5a189a;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
       font-family: 'Inter', sans-serif;
-      letter-spacing: 1px;
+    }
+    button:hover {
+      background-color: #7b2cbf;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div id="affirmation"></div>
+  <button onclick="newAffirmation()">New Whisper</button>
+
+  <script>
+    const affirmations = [
+      "The world shines brighter simply by having you in it 🌞",
+      "If no one has told you today, I'm wrapped in joy knowing you exist 💖",
+      "You're a perfect lil pumpkin and you'll get through it 🎃",
+      "🌻 for you",
+      "🌹 for you",
+      "🌷 for you",
+      "🌼 for you",
+      "You're sexy and intelligent -urduck 😘",
+      "You're a wonderful human",
+      "You're kind and empathetic 💕",
+      "I am immensely proud of you",
+      "I am proud of you for making decisions that align with your purpose 🌟",
+      "I am proud of you for accepting discomfort and enjoying the cards you've been dealt 💪",
+      "I am so excited for you, you are going to do wonderful things ✨",
+      "I am so so so proud of you, Keep Going ⭐",
+      "You will forever hold a place in my heart -urduck ❤️",
+      "You've been a reason why someone smiled on a bad day 😊",
+      "You bring a light to this world that is contagious 🌞",
+      "Absolutely Radiant Existence ✨",
+      "You have a positive impact on everyone in more ways than you could ever imagine 💖",
+      "Care for you like I would have -urduck 🌷",
+      "Eat, Sleep, Hydrate, Radiate, Love that woman 💖",
+      "Maybe you've cast a spell, Witch of Joy or something 🪄",
+      "It's beautiful, how strong you are, keep going 💪",
+      "You're an absolute inspiration 🌟",
+      "I hope you have a wonderful day 🌸",
+      "You're growing into the version of yourself you knew you always would, I'm so proud of you 🌻",
+      "You are my favorite color -urduck 💖",
+      "Don't give up you radiant little legend, you're strong and resilient and you can do it ⭐",
+      "You're funny 😂",
+      "Never hide who you are 💕",
+      "Always be yourself 🌸",
+      "My door will forever be open to you, just knock -urduck 🚪💖",
+      "Tell me everything, I'll love you regardless -urduck ❤️",
+      "You're strong and you're capable 💪",
+      "At the end of the day it's you and your life, so go have fun, be you 🌈",
+      "You're an absolute masterpiece, don't you forget it 🎨",
+      "My biggest blessing -urduck 💖",
+      "And if by any chance you don't believe in yourself anymore. Borrow my belief in you. Until you can believe in yourself again 🌟",
+      "You make bad days feel like magic ✨",
+      "🌸 You deserve all the cozy hugs today 🤗",
+      "You're trouble in the best way 😏",
+      "I’m proud of you for how far you’ve come 💖",
+      "Your smile is contagious 😊",
+      "You make ordinary moments feel extraordinary ✨",
+      "You’re my favorite notification 💌",
+      "You light up my world like nobody else 🌟",
+      "Even when it’s hard, you’re doing amazing 💪",
+      "You’re a star, never forget that ⭐",
+      "Sending you all the love today 💖",
+      "Keep shining, beautiful 🌟",
+      "You are magic, don’t let anyone tell you otherwise ✨",
+      "You’re my little hero 🦸‍♀️",
+      "I love how your mind works 🧠💖",
+      "You make life sweeter 🍯",
+      "Your energy is infectious 🌈",
+      "You are enough, always 💕",
+      "You’re my favorite hello and hardest goodbye 💌",
+      "You’re golden 🌟",
+      "Your laugh is my favorite sound 😂",
+      "You make hearts happy ❤️",
+      "I adore everything about you 💖",
+      "You’re my cozy place 🌸",
+      "You’re brilliant and unstoppable 💪",
+      "Keep being your wonderful self 🌷",
+      "You are loved beyond measure 💖",
+      "You inspire me every day ✨",
+      "You’re a ray of sunshine on cloudy days 🌞",
+      "You are a masterpiece, don’t forget it 🎨",
+      "You make the world better just by being in it 🌍",
+      "I believe in you always 💕",
+      "You’re my favorite chapter in the story of life 📖💖",
+      "You are the definition of amazing 🌟",
+      "You are my heart’s favorite beat ❤️",
+      "You deserve all the joy today 🌸",
+      "You’re a blessing to everyone around you 💖",
+      "You are perfect in your imperfections 🌷",
+      "Keep growing, keep glowing 🌟",
+      "You are a reason someone smiles today 😊",
+      "You are strong, you are loved 💪💖",
+      "You are my favorite person -urduck 💌",
+      "You are a gift to this world 🎁",
+      "You are magic ✨",
+      "You make ordinary things extraordinary 🌸",
+      "You are my favorite daydream 💖",
+      "Sending sunshine your way 🌞",
+      "You are my heart's warmth ❤️",
+      "You are radiant, inside and out 🌟",
+      "You make life sparkle ✨",
+      "You are loved, always 💕",
+      "You bring joy wherever you go 🌈",
+      "Every part of you is beautiful 💖",
+      "You are intelligent 🌟",
+      "You are worthy of all love 💕",
+      "You make the world softer 🌸",
+      "You are endlessly fascinating ✨",
+      "You are phenomenal 💖",
+      "You are a light in the darkness 🌟",
+      "You are magical 🌸"
+    ];
+
+    function getDailyAffirmation() {
+      const today = new Date();
+      const seed = today.getUTCFullYear() * 1000 + today.getUTCMonth() * 50 + today.getUTCDate();
+      const index = seed % affirmations.length;
+      return affirmations[index];
+    }
+
+    function newAffirmation() {
+      const random = affirmations[Math.floor(Math.random() * affirmations.length)];
+      const affirmationElement = document.getElementById('affirmation');
+      affirmationElement.style.opacity = 0;
+      setTimeout(() => {
+        affirmationElement.textContent = random;
+        affirmationElement.style.opacity = 1;
+      }, 300);
+    }
+
+    document.getElementById('affirmation').textContent = getDailyAffirmation();
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Another Whisper</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Inter:wght@300&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Playfair Display', serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      background: linear-gradient(135deg, #f8e1ec, #d8f3dc);
+      margin: 0;
+      color: #333;
+      text-align: center;
     }
     #affirmation {
       font-size: 1.6rem;
@@ -51,7 +217,6 @@
   </style>
 </head>
 <body>
-  <h1>Another Whisper</h1>
   <div id="affirmation"></div>
   <button onclick="newAffirmation()">New Whisper</button>
 
